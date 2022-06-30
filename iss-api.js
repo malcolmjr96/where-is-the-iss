@@ -14,8 +14,8 @@
  });
  const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 
- // sets interval of 1min to fetch the data.
- const intervalID = setInterval(getISS, 1000);
+ // sets interval of 2.30min to fetch the data.
+ const intervalID = setInterval(getISS, 2500);
 
  const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
 
