@@ -1,36 +1,43 @@
- // making a map and tiles
+// making a map and tiles
+const mymap = L.map('issMap').setView([0, 0], 1);
+const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap.org</a> contributors.';
 
+const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const tiles = L.tileLayer(tileUrl, { attribution });
+tiles.addTo(mymap);
 
-// const tileUrl = 'https://www.google.com/maps/search/?api=1&query={z}-{x}';
+// making a marker with a custom icon
+const issIcon = L.icon({
+    iconUrl: 'iss200.png',
+    iconSize: [50, 32],
+    iconAnchor: [25, 16],
+});
+const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 
+// sets interval of 1min to fetch the data.
+const intervalID = setInterval(getISS, 1000);
 
- // making a marker with a custom icon
+const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
 
+let firstTime = true;
 
- // sets interval of 2.30min to fetch the data.
- const intervalID = setInterval(getISS, 2500);
+async function getISS() {
+    const response = await fetch(api_url);
+    const data = await response.json();
+    const { latitude, longitude, velocity, altitude, units } = data;
 
- const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+    //L.marker([latitude, longitude]).addTo(mymap);
+    marker.setLatLng([latitude,longitude]);
 
- let firstTime = true;
+    if (firstTime) {
+        mymap.setView([latitude,longitude], 3);
+        firstTime = false;
+    }
 
- async function getISS() {
-     const response = await fetch(api_url);
-     const data = await response.json();
-     const { latitude, longitude, velocity, altitude, units } = data;
+    document.getElementById('lat').textContent = latitude.toFixed(2);
+    document.getElementById('lon').textContent = longitude.toFixed(2);
+    document.getElementById('vel').textContent = velocity.toFixed(2);
+    document.getElementById('alt').textContent = altitude.toFixed(2) + " " + units;
+}
 
-     //L.marker([latitude, longitude]).addTo(mymap);
-     marker.setLatLng([latitude,longitude]);
-
-     if (firstTime) {
-         mymap.setView([latitude,longitude], 3);
-         firstTime = false;
-     }
-
-     document.getElementById('lat').textContent = latitude.toFixed(2);
-     document.getElementById('lon').textContent = longitude.toFixed(2);
-     document.getElementById('vel').textContent = velocity.toFixed(2);
-     document.getElementById('alt').textContent = altitude.toFixed(2) + " " + units;
- }
- 
- getISS();
+getISS();
