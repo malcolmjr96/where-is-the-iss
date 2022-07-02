@@ -1,18 +1,11 @@
  // making a map and tiles
- const mymap = L.map('issMap').setView([0, 0], 1);
- const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap.org</a> contributors.';
 
- const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
- const tiles = L.tileLayer(tileUrl, { attribution });
- tiles.addTo(mymap);
+
+// const tileUrl = 'https://www.google.com/maps/search/?api=1&query={z}-{x}';
+
 
  // making a marker with a custom icon
- const issIcon = L.icon({
-     iconUrl: 'iss200.png',
-     iconSize: [50, 32],
-     iconAnchor: [25, 16],
- });
- const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
+
 
  // sets interval of 2.30min to fetch the data.
  const intervalID = setInterval(getISS, 2500);
