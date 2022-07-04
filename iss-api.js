@@ -25,7 +25,7 @@ const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '92ce42a640msh35c6eb22faa7f4bp1394e7jsn7db9ada4a3c6',
-		'X-RapidAPI-Host': 'uphere-space1.p.rapidapi.com',
+		'X-RapidAPI-Host': '',
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
