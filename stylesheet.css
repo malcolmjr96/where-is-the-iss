@@ -1,1 +1,3 @@
 #issMap { height: 400px; }
+p { font-weight:bold; }
+#lat, #lon, #vel, #alt { font-weight:normal; }
