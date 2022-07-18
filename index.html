@@ -9,18 +9,37 @@
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin=""></script>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
     </head>
     <body>
         <h1>Where is the ISS?</h1>
         <p>
-        <span class="StatHeading">Latitude: </span><span id="lat"></span>°<br>
-        <span class="StatHeading">Longitude: </span><span id="lon"></span>°<br>
-        <span class="StatHeading">Velocity: </span><span id="vel"></span> km/h<br>
-        <span class="StatHeading">Altitude: </span><span id="alt"></span>
-        </p>
-        <div id="issMap">
-
+        <div class="container">
+            <div class="row">
+      
+                <div class="col">
+                    <div class="sat-selector">
+                        <input type="dropdown">
+                    </div>
+                    <div class="sat-stats">
+                        <span class="StatHeading">Latitude: </span><span id="lat"></span>°<br>
+                        <span class="StatHeading">Longitude: </span><span id="lon"></span>°<br>
+                        <span class="StatHeading">Velocity: </span><span id="vel"></span> km/h<br>
+                        <span class="StatHeading">Altitude: </span><span id="alt"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="issMap"></div>
+                </div>
+            </div>
+            <div class="row">
+        
+            </div>
         </div>
         <script src="iss-api.js"></script>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
 </html>
