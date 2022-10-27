@@ -33,7 +33,7 @@
          mymap.setView([latitude,longitude], 3);
          firstTime = false;
      }
-
+     // Modifying html elements using specified ID's to include data from API.
      document.getElementById('lat').textContent = latitude.toFixed(2);
      document.getElementById('lon').textContent = longitude.toFixed(2);
      document.getElementById('vel').textContent = velocity.toFixed(2);
