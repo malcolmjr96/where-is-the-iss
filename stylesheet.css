@@ -1,2 +1,7 @@
-#issMap { height: 400px; }
+#issMap { height: 350px; } /* height of the map */
 .StatHeading { font-weight:bold; }
+
+
+nav, h3 {
+    color:white;
+}
