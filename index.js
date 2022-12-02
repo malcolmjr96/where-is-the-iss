@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 3060;
 
@@ -17,7 +18,7 @@ app.listen(port, () => {
 });
 app.get('/sattrack', async (request,response) => {
     let velocity, altitude;
-    const API_KEY = 'EZTRJU-4TZN3V-E6CBFN-4WA8';
+    const API_KEY = process.env.API_KEY;
     const n2yo_url = `https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/1/1/&apiKey=${API_KEY}`;
     const n2yo_response = await fetch(n2yo_url);
     const sat_data = await n2yo_response.json();
