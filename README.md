@@ -4,13 +4,9 @@ Where is the ISS, is a project that originally started by two co-workers who wer
 The project uses Node.js and express for setting up the server. The server then communicates with the API provided by n2yo.com and returns it to the client (user browser).
 
 ## Dependencies
-- dotenv: 16.0.3
-- express: 4.18.2
-- Node.js v18.12.1
-
-## Potential avenues
-- how far is the ISS from you
-- how long it will take to go over top of you? 
+- dotenv: [16.0.3](https://www.npmjs.com/package/dotenv)
+- express: [4.18.2](https://www.npmjs.com/package/express)
+- Node.js [v18.12.1](https://nodejs.org/en/download/)
 
 ## Our project uses:
 - [n2yo.com](https://n2yo.com) Satellite Tracking
@@ -22,3 +18,9 @@ The project uses Node.js and express for setting up the server. The server then 
 - Clone the repo, then open the terminal and navigate to the folder containing the cloned files. 
 - Modify .env_sample with your API Key from n2yo.com and then rename the file to .env. 
 - Type node index.js in the terminal. 
+
+## Future Changes / ideas "?"
+- Deploying project to Google Cloud, and automatically deploying new changes (Needed)
+- Add history page? Requires database (which is not too hard to implement).
+- how far is the ISS from you?
+- how long it will take to go over top of you?
