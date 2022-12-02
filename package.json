@@ -1,0 +1,27 @@
+{
+  "name": "sattrack",
+  "version": "0.0.1",
+  "description": "Track satelites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malcolmjr96/where-is-the-iss.git"
+  },
+  "keywords": [
+    "tracking",
+    "satelite",
+    "iss"
+  ],
+  "author": "song-shopify, thetallgiraffe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malcolmjr96/where-is-the-iss/issues"
+  },
+  "homepage": "https://github.com/malcolmjr96/where-is-the-iss#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
