@@ -16,8 +16,8 @@ The project uses Node.js and express for setting up the server. The server then 
 ## Installing
 - Note: You will need to install [Node.js](https://nodejs.org/en/download/) v18.12.1 or higher.
 - Clone the repo, then open the terminal and navigate to the folder containing the cloned files. 
-- Modify .env_sample with your API Key from n2yo.com and then rename the file to .env. 
-- Type node index.js in the terminal. 
+- Modify `.env_sample` with your API Key from n2yo.com and then rename the file to .env. 
+- Type `node index.js` in the terminal. 
 
 ## Future Changes / ideas "?"
 - Deploying project to Google Cloud, and automatically deploying new changes (Needed)
