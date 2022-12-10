@@ -1,7 +1,10 @@
-const express = require('express');
-require('dotenv').config()
+import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
+import express from 'express';
+
 const app = express();
 const port = process.env.PORT || 3060;
+import fetch from 'node-fetch';
 
 app.use(express.static('public'))
 
@@ -17,10 +20,7 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 });
 app.get('/sattrack', async (request,response) => {
-    let interval = 0;
 
-    if (interval ) {
-    interval = ++1;
     let velocity, altitude;
     const API_KEY = process.env.API_KEY;
     const n2yo_url = `https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/1/1/&apiKey=${API_KEY}`;
@@ -47,6 +47,5 @@ app.get('/sattrack', async (request,response) => {
         velocity = orbPeriod / seconds_in_hour;
         return velocity;
     };
-};
 });
 
