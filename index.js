@@ -1,7 +1,10 @@
-const express = require('express');
-require('dotenv').config()
+import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
+import express from 'express';
+
 const app = express();
 const port = process.env.PORT || 3060;
+import fetch from 'node-fetch';
 
 app.use(express.static('public'))
 
@@ -17,7 +20,7 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 });
 app.get('/sattrack', async (request,response) => {
-    const intervalID = setInterval(fetchData, 2500);
+
     let velocity, altitude;
     fetchData();
     async function fetchData(){
@@ -46,6 +49,5 @@ app.get('/sattrack', async (request,response) => {
         velocity = orbPeriod / seconds_in_hour;
         return velocity;
     };
-};
 });
 
