@@ -15,11 +15,13 @@
  const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 
  // sets interval of 2.30min to fetch the data.
+ const intervalID = setInterval(getData, 2500);
 
 let firstTime = true;
 const button = document.getElementById('control');
 
-button.addEventListener("click", async (event) => {
+getData();
+async function getData(){
     const response = await fetch('/sattrack');
     const response_data = await response.json();
     const satPosition = response_data.satPosition.positions[0];
@@ -47,5 +49,5 @@ button.addEventListener("click", async (event) => {
     document.getElementById('lon').textContent = satlong.toFixed(2);
     document.getElementById('vel').textContent = sat_velocity.toFixed(2);
     document.getElementById('alt').textContent = satalt.toFixed(2);
-});
+};
 
