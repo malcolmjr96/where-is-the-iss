@@ -3,11 +3,11 @@ require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 3060;
 
-//app.use(express.static('public'))
+app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    res.send('hello world!');
-});
+//app.get('/', (req, res) => {
+//    res.send('hello world!');
+//});
 
 app.post('/', (req, res) => {
     res.send('POST request to the homepage')

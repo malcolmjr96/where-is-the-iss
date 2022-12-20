@@ -15,7 +15,7 @@
  const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 
  // sets interval of 2.30min to fetch the data.
- const intervalID = setInterval(getData, 2500);
+ const intervalID = setInterval(getData, 2500); // move to server.
 
 let firstTime = true;
 const button = document.getElementById('control');
