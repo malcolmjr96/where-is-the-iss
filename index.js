@@ -20,7 +20,7 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 });
 app.get('/sattrack', async (request,response) => {
-    let velocity, altitude;
+    let velocity, altitude, satData, sat_data;
     fetchData();
     async function fetchData(){
         const API_KEY = process.env.API_KEY;
@@ -29,15 +29,14 @@ app.get('/sattrack', async (request,response) => {
         const sat_data = await n2yo_response.json();
 
         altitude = await sat_data.positions[0].sataltitude;
-   
         calculateVelocity();
         const satData = {
             satPosition: sat_data,
             satVelocity: velocity
         };
-
+        console.log(satData);
         response.json(satData);
-
+        
     }
 
     function calculateVelocity(){
