@@ -57,6 +57,7 @@ async function fetchData(){
     var timediff = startTime - endTime;
     timediff /= 1000; 
     var seconds = Math.round(timediff);
-    //console.log(seconds + " seconds");
+    console.log(seconds + " seconds");
+    return 0;
 };
 
