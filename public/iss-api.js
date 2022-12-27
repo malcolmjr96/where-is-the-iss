@@ -31,16 +31,12 @@ async function fetchData(){
     const response_data = await response.json();
     const satPosition = response_data.satPosition.positions[0];
     const sat_velocity = response_data.satVelocity;
-    console.log(satPosition,'test1', sat_velocity);
-
-    console.log(response_data, 'here!');
+        
+    console.log(satPosition, sat_velocity,'test1' );
 
     let satlat = satPosition.satlatitude;
     let satlong = satPosition.satlongitude;
     let satalt = satPosition.sataltitude;
-    console.log(satPosition.sataltitude, 'Altitude:');
-    console.log(satlong);
-    console.log(satlat);
 
     //L.marker([latitude, longitude]).addTo(mymap);
     marker.setLatLng([satlat,satlong]);
