@@ -19,11 +19,9 @@
 
 let firstTime = true;
 const button = document.getElementById('control');
-try {
-    fetchData();
-} catch(err){
-    console.log(err)
-}
+
+fetchData();
+
 
 // button.addEventListener("click", async (event) => {
 async function fetchData(){
