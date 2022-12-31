@@ -48,5 +48,6 @@ app.get('/sattrack', async (request,response) => {
         velocity = orbPeriod / seconds_in_hour;
         return velocity;
     };
+    res.status(404).send("Sorry can't find that!")
 });
 
