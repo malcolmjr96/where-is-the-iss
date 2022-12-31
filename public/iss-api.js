@@ -56,6 +56,6 @@ async function fetchData(){
     timediff /= 1000; 
     var seconds = Math.round(timediff);
     console.log(seconds + " seconds");
-    return 0;
+    return sat_long;
 };
 
