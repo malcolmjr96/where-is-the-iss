@@ -29,9 +29,13 @@ async function fetchData(){
     startTime = performance.now();
     console.log(startTime);
     const response = await fetch('/sattrack');
+    console.log(response);
     const response_data = await response.json();
+    console.log(response_data)
     const satPosition = response_data.satPosition.positions[0];
     const sat_velocity = response_data.satVelocity;
+    console.log(satPosition);
+    console.log(sat_velocity);
         
     console.log(satPosition, sat_velocity,'test1' );
 
