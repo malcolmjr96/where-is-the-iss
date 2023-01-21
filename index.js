@@ -3,7 +3,7 @@ import Bugsnag from '@bugsnag/js'
 import bugsnagPluginExpress from '@bugsnag/plugin-express';
 
 Bugsnag.start({
-    apiKey: `${process.env.BSAPIKEY}`,
+    apiKey: `9b3c60aee7335076646ab98ea83c7ee9`,
     plugins: [bugsnagPluginExpress]
   })
 
