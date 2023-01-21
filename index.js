@@ -25,13 +25,13 @@ app.use(express.static('public'))
 //});
 
 app.post('/', (req, res) => {
+    console.log('test');
     res.send('POST request to the homepage')
 });
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}...`)
-});
-app.get('/sattrack', async (request,response) => {
+
+app.get('/track', async (req,res) => {
+    console.log('Step 1');
     let velocity, altitude;
 
     const API_KEY = `EZTRJU-4TZN3V-E6CBFN-4WA8`;
@@ -39,17 +39,20 @@ app.get('/sattrack', async (request,response) => {
     const n2yo_response = await fetch(n2yo_url);
     const sat_data = await n2yo_response.json();
 
+    console.log(n2yo_response);
+
     altitude = await sat_data.positions[0].sataltitude;
-    calculateVelocity();
+    velocity = await calculateVelocity();
+    console.log(altitude);
+    console.log(velocity)
 
     const satData = {
         satPosition: sat_data,
         satVelocity: velocity
     };
     Bugsnag.notify(new Error('Fetch Data'))
-    response.send(satData);
 
-    console.log(satData)
+
 
     function calculateVelocity(){
         const distance_around_earth = 1.55;
@@ -62,11 +65,18 @@ app.get('/sattrack', async (request,response) => {
         Bugsnag.notify(new Error('Calculate Velocity'))
         return velocity;
     }
+
+    
+    res.send(satData);
     //res.status(404).send("Sorry can't find that!")
 });
 // Bugsnag.notify(new Error('Test error'))
 // app.use(function (req, res, next) {
 //     throw new Error('Test error')
 //   })
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}...`)
+});
 
 app.use(middleware.errorHandler)

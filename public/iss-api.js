@@ -24,18 +24,17 @@ button.addEventListener("click", async (event) => {
     var startTime, endTime;
     startTime = performance.now();
     console.log('Start Time: ' + startTime);
-    const response = await fetch('/sattrack');
-    console.log(response);
-    // const response_data = await response.json();
-
+    const response = await fetch('/track');
+    const response_data = await response.json();
+    console.log(response_data)
 
     //L.marker([latitude, longitude]).addTo(mymap);
-    marker.setLatLng([satlat,satlong]);
+    // marker.setLatLng([satlat,satlong]);
 
-    if (firstTime) {
-        mymap.setView([satlat,satlong], 3);
-        firstTime = false;
-    }
+    // if (firstTime) {
+    //     mymap.setView([satlat,satlong], 3);
+    //     firstTime = false;
+    // }
     // Modifying html elements using specified ID's to include data from API.
     // document.getElementById('lat').textContent = satlat.toFixed(2);
     // document.getElementById('lon').textContent = satlong.toFixed(2);
@@ -46,6 +45,6 @@ button.addEventListener("click", async (event) => {
     timediff /= 1000; 
     var seconds = Math.round(timediff);
     console.log(seconds + " seconds");
-    return sat_long;
+  //  return sat_long;
 });
 
