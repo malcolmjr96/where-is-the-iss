@@ -5,3 +5,8 @@
 nav, h3 {
     color:white;
 }
+#control {
+    margin: 2px;
+    width: 250px;
+    height: 100px;
+}

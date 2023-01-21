@@ -32,7 +32,7 @@ button.addEventListener("click", async (event) => {
         .then((res) => {
             const data = res.json();
             return data;
-        })
+        });
 
     console.log(response);
     //L.marker([latitude, longitude]).addTo(mymap);
