@@ -47,7 +47,7 @@ app.get('/sattrack', async (request,response) => {
         satVelocity: velocity
     };
     Bugsnag.notify(new Error('Fetch Data'))
-    response.json(satData);
+    response.send(satData);
 
     function calculateVelocity(){
         const distance_around_earth = 1.55;
