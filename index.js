@@ -1,8 +1,20 @@
+
+import Bugsnag from '@bugsnag/js'
+import bugsnagPluginExpress from '@bugsnag/plugin-express';
+
+Bugsnag.start({
+    apiKey: '9b3c60aee7335076646ab98ea83c7ee9',
+    plugins: [bugsnagPluginExpress]
+  })
+
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 import express from 'express';
 
 const app = express();
+var middleware = Bugsnag.getPlugin('express')
+
+app.use(middleware.requestHandler)
 const port = process.env.PORT || 3060;
 import fetch from 'node-fetch';
 
@@ -48,6 +60,11 @@ app.get('/sattrack', async (request,response) => {
         velocity = orbPeriod / seconds_in_hour;
         return velocity;
     };
-    res.status(404).send("Sorry can't find that!")
+    //res.status(404).send("Sorry can't find that!")
 });
+// Bugsnag.notify(new Error('Test error'))
+// app.use(function (req, res, next) {
+//     throw new Error('Test error')
+//   })
 
+app.use(middleware.errorHandler)
