@@ -48,7 +48,6 @@ app.get('/sattrack', async (request,response) => {
     };
     Bugsnag.notify(new Error('Fetch Data'))
     response.json(satData);
-    }
 
     function calculateVelocity(){
         const distance_around_earth = 1.55;
@@ -60,7 +59,7 @@ app.get('/sattrack', async (request,response) => {
         velocity = orbPeriod / seconds_in_hour;
         Bugsnag.notify(new Error('Calculate Velocity'))
         return velocity;
-    };
+    }
     //res.status(404).send("Sorry can't find that!")
 });
 // Bugsnag.notify(new Error('Test error'))
