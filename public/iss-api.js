@@ -28,16 +28,6 @@ button.addEventListener("click", async (event) => {
     console.log(response);
     // const response_data = await response.json();
 
-    const satPosition = response_data.satPosition.positions[0];
-    const sat_velocity = response_data.satVelocity;
-    console.log(satPosition);
-    console.log(sat_velocity);
-        
-    console.log(satPosition, sat_velocity,'test1' );
-
-    let satlat = satPosition.satlatitude;
-    let satlong = satPosition.satlongitude;
-    let satalt = satPosition.sataltitude;
 
     //L.marker([latitude, longitude]).addTo(mymap);
     marker.setLatLng([satlat,satlong]);
@@ -47,10 +37,10 @@ button.addEventListener("click", async (event) => {
         firstTime = false;
     }
     // Modifying html elements using specified ID's to include data from API.
-    document.getElementById('lat').textContent = satlat.toFixed(2);
-    document.getElementById('lon').textContent = satlong.toFixed(2);
-    document.getElementById('vel').textContent = sat_velocity.toFixed(2);
-    document.getElementById('alt').textContent = satalt.toFixed(2);
+    // document.getElementById('lat').textContent = satlat.toFixed(2);
+    // document.getElementById('lon').textContent = satlong.toFixed(2);
+    // document.getElementById('vel').textContent = sat_velocity.toFixed(2);
+    // document.getElementById('alt').textContent = satalt.toFixed(2);
     endTime = performance.now();
     var timediff = startTime - endTime;
     timediff /= 1000; 
