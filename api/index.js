@@ -1,7 +1,5 @@
-
 import Bugsnag from '@bugsnag/js'
 import bugsnagPluginExpress from '@bugsnag/plugin-express';
-
 Bugsnag.start({
     apiKey: `9b3c60aee7335076646ab98ea83c7ee9`,
     plugins: [bugsnagPluginExpress]
@@ -10,10 +8,12 @@ Bugsnag.start({
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 import express from 'express';
+import cors from 'cors'
 
 const app = express();
-var middleware = Bugsnag.getPlugin('express')
+const middleware = Bugsnag.getPlugin('express')
 
+app.use(cors())
 app.use(middleware.requestHandler)
 const port = process.env.PORT || 3060;
 import fetch from 'node-fetch';

@@ -28,7 +28,7 @@ button.addEventListener("click", async (event) => {
     let startTime, endTime;
     startTime = performance.now();
     console.log('Start Time: ' + startTime);
-    let response = await fetch('./track', headers)
+    let response = await fetch('https://shark-app-raee6.ondigitalocean.app/track', headers)
         .then((res) => {
             let data = res.json();
             return data;
