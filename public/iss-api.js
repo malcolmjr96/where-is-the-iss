@@ -21,11 +21,14 @@ let firstTime = true;
 const button = document.getElementById('control');
 
 button.addEventListener("click", async (event) => {
+    const headers = {
+        'Content-type': 'text/json'
+    }
 
     let startTime, endTime;
     startTime = performance.now();
     console.log('Start Time: ' + startTime);
-    let response = await fetch('./track')
+    let response = await fetch('./track', headers)
         .then((res) => {
             const data = res.json();
             return data;
