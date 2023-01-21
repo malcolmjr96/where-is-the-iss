@@ -26,12 +26,15 @@ button.addEventListener("click", async (event) => {
     console.log('Start Time: ' + startTime);
     let response = await fetch('/track')
         .then((body) => {
-            let data = body.json();
-            return data;
+            return body;
         });
+    let response_data = await response.json();
 
-    const satPosition = response.satPosition;
-    const satVelocity = response.satVelocity;
+
+    console.log(response_data, 'this one?');
+
+    const satPosition = response_data.satPosition;
+    const satVelocity = response_data.satVelocity;
 
     const satlong = satPosition.positions[0].satlongitude;
     const satlat = satPosition.positions[0].satlatitude;
