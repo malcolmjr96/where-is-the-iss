@@ -10,13 +10,19 @@ dotenv.config();
 import express from 'express';
 import cors from 'cors'
 
+
+
 const app = express();
 const middleware = Bugsnag.getPlugin('express')
 
-app.use(cors())
 app.use(middleware.requestHandler)
 const port = process.env.PORT || 3060;
 import fetch from 'node-fetch';
+
+
+app.use(cors({
+    origin: 'https://shark-app-raee6.ondigitalocean.app/track'
+}));
 
 app.use(express.static('public'))
 

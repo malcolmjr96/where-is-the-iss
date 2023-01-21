@@ -21,14 +21,10 @@ let firstTime = true;
 const button = document.getElementById('control');
 
 button.addEventListener("click", async (event) => {
-    const headers = {
-        'Content-type': 'text/json'
-    }
-
     let startTime, endTime;
     startTime = performance.now();
     console.log('Start Time: ' + startTime);
-    let response = await fetch('https://shark-app-raee6.ondigitalocean.app/track', headers)
+    let response = await fetch('https://shark-app-raee6.ondigitalocean.app/track')
         .then((res) => {
             let data = res.json();
             return data;
