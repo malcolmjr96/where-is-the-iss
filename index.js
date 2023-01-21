@@ -3,7 +3,7 @@ import Bugsnag from '@bugsnag/js'
 import bugsnagPluginExpress from '@bugsnag/plugin-express';
 
 Bugsnag.start({
-    apiKey: '9b3c60aee7335076646ab98ea83c7ee9',
+    apiKey: `${process.env.BSAPIKEY}`,
     plugins: [bugsnagPluginExpress]
   })
 
@@ -47,6 +47,7 @@ app.get('/sattrack', async (request,response) => {
             satPosition: sat_data,
             satVelocity: velocity
         };
+        Bugsnag.notify(new Error('Fetch Data'))
         response.json(satData);
     }
 
@@ -58,6 +59,7 @@ app.get('/sattrack', async (request,response) => {
         let c = earthRadius + altitude;
         const orbPeriod = Math.round(a * c) / distance_around_earth;
         velocity = orbPeriod / seconds_in_hour;
+        Bugsnag.notify(new Error('Calculate Velocity'))
         return velocity;
     };
     //res.status(404).send("Sorry can't find that!")
