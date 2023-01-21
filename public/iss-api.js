@@ -58,6 +58,5 @@ button.addEventListener("click", async (event) => {
     timediff /= 1000; 
     let seconds = Math.round(timediff);
     console.log(seconds + " seconds");
-    return response;
 });
 
