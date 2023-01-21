@@ -24,9 +24,9 @@ button.addEventListener("click", async (event) => {
     let startTime, endTime;
     startTime = performance.now();
     console.log('Start Time: ' + startTime);
-    let response = await fetch('https://shark-app-raee6.ondigitalocean.app/track')
-        .then((res) => {
-            let data = res.json();
+    let response = await fetch('/track')
+        .then((body) => {
+            let data = body.json();
             return data;
         });
 
@@ -48,6 +48,6 @@ button.addEventListener("click", async (event) => {
     timediff /= 1000; 
     let seconds = Math.round(timediff);
     console.log(seconds + " seconds");
-  //  return sat_long;
+    return response;
 });
 
