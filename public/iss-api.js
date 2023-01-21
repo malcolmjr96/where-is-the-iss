@@ -19,11 +19,6 @@
 
 let firstTime = true;
 const button = document.getElementById('control');
-try {
-fetchData();
-} catch(err){
-    console.log(err)
-}
 
 button.addEventListener("click", async (event) => {
     var startTime, endTime;
