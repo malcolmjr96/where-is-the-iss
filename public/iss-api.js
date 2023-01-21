@@ -25,7 +25,7 @@ button.addEventListener("click", async (event) => {
     let startTime, endTime;
     startTime = performance.now();
     console.log('Start Time: ' + startTime);
-    let response = await fetch('/track')
+    let response = await fetch('./track')
         .then((res) => {
             return res.json();
         })
