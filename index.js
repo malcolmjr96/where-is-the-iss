@@ -31,7 +31,6 @@ app.post('/', (req, res) => {
 
 
 app.get('/track', async (req,res) => {
-    console.log('Step 1');
     let velocity, altitude;
 
     const API_KEY = `EZTRJU-4TZN3V-E6CBFN-4WA8`;
@@ -39,12 +38,8 @@ app.get('/track', async (req,res) => {
     const n2yo_response = await fetch(n2yo_url);
     const sat_data = await n2yo_response.json();
 
-    console.log(n2yo_response);
-
     altitude = await sat_data.positions[0].sataltitude;
     velocity = await calculateVelocity();
-    console.log(altitude);
-    console.log(velocity)
 
     const satData = {
         satPosition: sat_data,

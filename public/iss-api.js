@@ -21,13 +21,16 @@ let firstTime = true;
 const button = document.getElementById('control');
 
 button.addEventListener("click", async (event) => {
-    var startTime, endTime;
+
+    let startTime, endTime;
     startTime = performance.now();
     console.log('Start Time: ' + startTime);
-    const response = await fetch('/track');
-    const response_data = await response.json();
-    console.log(response_data)
+    let response = await fetch('/track')
+        .then((res) => {
+            return res.json();
+        })
 
+    console.log(response);
     //L.marker([latitude, longitude]).addTo(mymap);
     // marker.setLatLng([satlat,satlong]);
 
@@ -41,9 +44,9 @@ button.addEventListener("click", async (event) => {
     // document.getElementById('vel').textContent = sat_velocity.toFixed(2);
     // document.getElementById('alt').textContent = satalt.toFixed(2);
     endTime = performance.now();
-    var timediff = startTime - endTime;
+    let timediff = startTime - endTime;
     timediff /= 1000; 
-    var seconds = Math.round(timediff);
+    let seconds = Math.round(timediff);
     console.log(seconds + " seconds");
   //  return sat_long;
 });
