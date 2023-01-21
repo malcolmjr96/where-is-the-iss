@@ -25,8 +25,7 @@ fetchData();
     console.log(err)
 }
 
-// button.addEventListener("click", async (event) => {
-async function fetchData(){
+button.addEventListener("click", async (event) => {
     var startTime, endTime;
     startTime = performance.now();
     console.log(startTime);
@@ -63,5 +62,5 @@ async function fetchData(){
     var seconds = Math.round(timediff);
     console.log(seconds + " seconds");
     return sat_long;
-};
+});
 
