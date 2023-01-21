@@ -30,7 +30,7 @@ button.addEventListener("click", async (event) => {
     console.log('Start Time: ' + startTime);
     let response = await fetch('./track', headers)
         .then((res) => {
-            const data = res.json();
+            let data = res.json();
             return data;
         });
 
