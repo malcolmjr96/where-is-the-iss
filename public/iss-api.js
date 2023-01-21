@@ -30,19 +30,29 @@ button.addEventListener("click", async (event) => {
             return data;
         });
 
-    console.log(response);
-    //L.marker([latitude, longitude]).addTo(mymap);
-    // marker.setLatLng([satlat,satlong]);
+    const satPosition = response.satPosition;
+    const satVelocity = response.satVelocity;
 
-    // if (firstTime) {
-    //     mymap.setView([satlat,satlong], 3);
-    //     firstTime = false;
-    // }
-    // Modifying html elements using specified ID's to include data from API.
-    // document.getElementById('lat').textContent = satlat.toFixed(2);
-    // document.getElementById('lon').textContent = satlong.toFixed(2);
-    // document.getElementById('vel').textContent = sat_velocity.toFixed(2);
-    // document.getElementById('alt').textContent = satalt.toFixed(2);
+    const satlong = satPosition.positions[0].satlongitude;
+    const satlat = satPosition.positions[0].satlatitude;
+    const satalt = satPosition.positions[0].sataltitude;
+
+    console.log(satlong);
+
+    console.log(satPosition);
+    console.log(satVelocity);
+    L.marker([satlat, satlong]).addTo(mymap);
+    marker.setLatLng([satlat,satlong]);
+
+    if (firstTime) {
+        mymap.setView([satlat,satlong], 3);
+        firstTime = false;
+    }
+    //Modifying html elements using specified ID's to include data from API.
+    document.getElementById('lat').textContent = satlat.toFixed(2);
+    document.getElementById('lon').textContent = satlong.toFixed(2);
+    document.getElementById('vel').textContent = satVelocity.toFixed(2);
+    document.getElementById('alt').textContent = satalt.toFixed(2);
     endTime = performance.now();
     let timediff = startTime - endTime;
     timediff /= 1000; 
