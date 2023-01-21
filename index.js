@@ -40,7 +40,7 @@ app.get('/sattrack', async (request,response) => {
     const sat_data = await n2yo_response.json();
 
     altitude = await sat_data.positions[0].sataltitude;
-    alculateVelocity();
+    calculateVelocity();
 
     const satData = {
         satPosition: sat_data,
