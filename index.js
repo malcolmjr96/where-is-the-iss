@@ -32,23 +32,22 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}...`)
 });
 app.get('/sattrack', async (request,response) => {
-    let velocity, altitude, satData, sat_data;
-    fetchData();
-    async function fetchData(){
-        const API_KEY = `EZTRJU-4TZN3V-E6CBFN-4WA8`;
-        const n2yo_url = `https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/1/1/&apiKey=${API_KEY}`;
-        const n2yo_response = await fetch(n2yo_url);
-        const sat_data = await n2yo_response.json();
+    let velocity, altitude;
 
-        altitude = await sat_data.positions[0].sataltitude;
-        calculateVelocity();
+    const API_KEY = `EZTRJU-4TZN3V-E6CBFN-4WA8`;
+    const n2yo_url = `https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/1/1/&apiKey=${API_KEY}`;
+    const n2yo_response = await fetch(n2yo_url);
+    const sat_data = await n2yo_response.json();
 
-        const satData = {
-            satPosition: sat_data,
-            satVelocity: velocity
-        };
-        Bugsnag.notify(new Error('Fetch Data'))
-        response.json(satData);
+    altitude = await sat_data.positions[0].sataltitude;
+    alculateVelocity();
+
+    const satData = {
+        satPosition: sat_data,
+        satVelocity: velocity
+    };
+    Bugsnag.notify(new Error('Fetch Data'))
+    response.json(satData);
     }
 
     function calculateVelocity(){
