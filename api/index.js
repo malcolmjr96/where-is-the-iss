@@ -43,7 +43,7 @@ app.get('/track', async (req,res) => {
 
     const satData = {
         satPosition: sat_data,
-        satVelocity: velocity
+        satVelocity: velocity,
     };
     Bugsnag.notify(new Error('Fetch Data'))
 
