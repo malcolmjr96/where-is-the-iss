@@ -35,7 +35,7 @@ app.post('/', (req, res) => {
 });
 
 
-app.get('/track', async (req,res) => {
+app.get('/track', async (request, response) => {
     let velocity, altitude;
 
     const API_KEY = `${API_KEY}` || process.env.API_KEY;
