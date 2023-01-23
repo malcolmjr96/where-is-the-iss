@@ -66,6 +66,7 @@ app.get('/track', async (req,res) => {
         return velocity;
     }
 
+    Bugsnag.notify(new Error('Finished!'))
     return res.status(422).json();
   //  res.send(satData);
     //res.status(404).send("Sorry can't find that!")
