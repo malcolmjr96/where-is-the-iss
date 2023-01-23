@@ -1,7 +1,7 @@
 import Bugsnag from '@bugsnag/js'
 import bugsnagPluginExpress from '@bugsnag/plugin-express';
 Bugsnag.start({
-    apiKey: `9b3c60aee7335076646ab98ea83c7ee9`,
+    apiKey: `${BSAPIKEY}` || process.env.BSAPIKEY,
     plugins: [bugsnagPluginExpress]
   })
 
@@ -10,12 +10,11 @@ dotenv.config();
 import express from 'express';
 import cors from 'cors'
 
-
-
 const app = express();
 const middleware = Bugsnag.getPlugin('express')
-
 app.use(middleware.requestHandler)
+//const router = express.Router();
+
 const port = process.env.PORT || 3060;
 import fetch from 'node-fetch';
 
@@ -39,7 +38,7 @@ app.post('/', (req, res) => {
 app.get('/track', async (req,res) => {
     let velocity, altitude;
 
-    const API_KEY = `EZTRJU-4TZN3V-E6CBFN-4WA8`;
+    const API_KEY = `${API_KEY}` || process.env.API_KEY;
     const n2yo_url = `https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/1/1/&apiKey=${API_KEY}`;
     const n2yo_response = await fetch(n2yo_url);
     const sat_data = await n2yo_response.json();
