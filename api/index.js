@@ -66,8 +66,8 @@ app.get('/track', async (req,res) => {
         return velocity;
     }
 
-    
-    res.send(satData);
+    return res.status(422).json("Passwords are not matching");
+  //  res.send(satData);
     //res.status(404).send("Sorry can't find that!")
 });
 // Bugsnag.notify(new Error('Test error'))
